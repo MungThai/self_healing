@@ -21,7 +21,7 @@ public class DriverFactory {
 
     private static final DriverFactory instance = new DriverFactory();
 
-//    ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
+//    ThreadLocal<SelfHealingDriver> driver = new ThreadLocal<SelfHealingDriver>();
     public SelfHealingDriver driver;
     private WebDriver webDriver;
 
@@ -37,9 +37,9 @@ public class DriverFactory {
     public void setUp() {
         initDriver();
       //  driver.set(webDriver);
-        Config healeniumConfig = ConfigFactory.load("healenium.properties");
+        Config config = ConfigFactory.load("sha.properties");
 
-        driver = SelfHealingDriver.create(webDriver, healeniumConfig);
+        driver = SelfHealingDriver.create(webDriver, config);
     }
 
     public void initDriver() {
