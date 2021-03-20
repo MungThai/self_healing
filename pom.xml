@@ -44,10 +44,6 @@
         <maven.surefire.version>3.0.0-M5</maven.surefire.version>
         <io.cucumber.version>6.8.2</io.cucumber.version>
         <selenium.version>3.141.59</selenium.version>
-<!--
-        <selenium.version>4.0.0-beta-2</selenium.version>
--->
-        <testng.version>7.4.0</testng.version>
         <log4j.version>2.14.0</log4j.version>
         <webdrivermanager.version>4.3.1</webdrivermanager.version>
         <java.version>11</java.version>
@@ -112,7 +108,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>${testng.version}</version>
+            <version>7.4.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -126,12 +122,7 @@
             <version>${io.cucumber.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-testng</artifactId>
-            <version>${io.cucumber.version}</version>
-        </dependency>
-        <dependency>
+       <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-picocontainer</artifactId>
             <version>${io.cucumber.version}</version>
@@ -169,14 +160,6 @@
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
         </dependency>
-<!--
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.1</version>
-            <scope>test</scope>
-        </dependency>
--->
         <dependency>
             <groupId>org.junit.vintage</groupId>
             <artifactId>junit-vintage-engine</artifactId>
@@ -200,7 +183,6 @@
             <artifactId>maven-clean-plugin</artifactId>
             <version>3.1.0</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -210,12 +192,10 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven.compiler.version}</version>
                 <configuration>
-                    <!--
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    -->
                     <release>${java.version}</release>
-                    <compilerArgs>--enable-preview</compilerArgs>
+                    <compilerArgs>
+                        <arg>--enable-preview</arg>
+                    </compilerArgs>
 
                 </configuration>
             </plugin>
@@ -232,20 +212,6 @@
                 </executions>
                 <configuration>
                     <argLine>--enable-preview</argLine>
-                    <forkCount>3</forkCount>
-                    <reuseForks>true</reuseForks>
-                    <properties>
-                        <property>
-                            <name>dataproviderthreadcount</name>
-                            <value>20</value>
-                        </property>
-                    </properties>
-                    <parallel>methods</parallel>
-                    <threadCount>4</threadCount>
-                    <perCoreThreadCount>false</perCoreThreadCount>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/suites/TestNG.xml</suiteXmlFile>
-                    </suiteXmlFiles>
                 </configuration>
             </plugin>
             <plugin>

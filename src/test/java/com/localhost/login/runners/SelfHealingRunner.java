@@ -8,9 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
-import org.testng.ITestResult;
 
 // command line: mvn clean test -Dtest=com.localhost.login.runners.JunitRunner
 // or: mvn clean test -Dtest=JunitRunner
@@ -26,8 +24,8 @@ import org.testng.ITestResult;
         }
 )
 
-public class JunitRunner {
-    private static final Logger logger = LogManager.getLogger( JunitRunner.class );
+public class SelfHealingRunner {
+    private static final Logger logger = LogManager.getLogger( SelfHealingRunner.class );
     protected static WebDriver driver;
 
     @BeforeClass
